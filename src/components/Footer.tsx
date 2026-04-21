@@ -1,4 +1,4 @@
-import { Instagram, Linkedin, Youtube, Sparkles, ExternalLink, MapPin } from "lucide-react";
+import { Linkedin, Youtube, Sparkles, ExternalLink, MapPin } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -64,16 +64,7 @@ const Footer = () => {
             </h3>
             <div className="flex gap-3">
               <a
-                href="https://www.instagram.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram"
-                className="w-10 h-10 rounded-full bg-background border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/40 hover:-translate-y-0.5 transition-all"
-              >
-                <Instagram className="w-4 h-4" />
-              </a>
-              <a
-                href="https://www.linkedin.com/"
+                href="https://www.linkedin.com/company/interacto-ai-solutions/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
@@ -82,7 +73,7 @@ const Footer = () => {
                 <Linkedin className="w-4 h-4" />
               </a>
               <a
-                href="https://www.youtube.com/"
+                href="https://youtu.be/wocWCqZu5LM"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="YouTube"
