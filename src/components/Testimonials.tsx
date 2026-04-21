@@ -40,12 +40,10 @@ const Testimonials = () => {
   return (
     <section id="testimonials" className="py-20 md:py-24 bg-background">
       <div className="container mx-auto px-4">
-        <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16 animate-fade-in">
+        <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16 reveal">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 tracking-tight">
             Loved by{" "}
-            <span className="bg-gradient-primary bg-clip-text text-transparent">
-              Students Across India
-            </span>
+            <span className="text-gradient">Students Across India</span>
           </h2>
           <p className="text-base md:text-xl text-muted-foreground">
             Real stories from students who landed real opportunities.
@@ -56,8 +54,8 @@ const Testimonials = () => {
           {testimonials.map((t, i) => (
             <Card
               key={i}
-              className="group hover:shadow-md transition-all duration-300 border-border/60 hover:border-primary/40 animate-fade-in"
-              style={{ animationDelay: `${i * 0.1}s` }}
+              className="group hover-lift border-border/60 hover:border-primary/40 reveal"
+              style={{ transitionDelay: `${i * 100}ms` }}
             >
               <CardContent className="p-6 space-y-4 flex flex-col h-full">
                 <div className="flex gap-0.5" aria-label="5 star rating">
