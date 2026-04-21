@@ -1,59 +1,69 @@
-import { FileText, MessageSquare, Users, Sparkles } from "lucide-react";
+import { FileCheck2, ListChecks, Video, MessagesSquare } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
 const features = [
   {
-    icon: FileText,
-    title: "AI Resume Enhancement",
-    description: "Transform your resume with intelligent suggestions, keyword optimization, and industry-specific formatting that gets past ATS systems and impresses recruiters.",
+    icon: FileCheck2,
+    title: "ATS Resume Improviser",
+    description:
+      "Optimize your resume for Applicant Tracking Systems. Get instant scoring, keyword suggestions, and formatting fixes that help you get shortlisted.",
   },
   {
-    icon: MessageSquare,
-    title: "Personalized Interview Prep",
-    description: "Practice with AI-generated questions tailored to your target role and industry. Get real-time feedback on your responses and body language.",
+    icon: ListChecks,
+    title: "Question Bank Generator",
+    description:
+      "Generate role-based interview questions tailored to your resume and target job — from technical rounds to HR scenarios.",
   },
   {
-    icon: Sparkles,
-    title: "Mock Interviews with Feedback",
-    description: "Experience realistic interview scenarios with instant AI analysis. Improve your confidence, communication, and technical skills through guided practice.",
+    icon: Video,
+    title: "Mock Interviews",
+    description:
+      "Practice realistic interview sessions with AI-driven feedback on your answers, tone, and confidence.",
+    badge: "Coming Soon",
   },
   {
-    icon: Users,
-    title: "Professional Network & Referrals",
-    description: "Connect with industry professionals, get mentorship, and access exclusive referral opportunities from our partner companies.",
+    icon: MessagesSquare,
+    title: "Interpersonal Skill Tools",
+    description:
+      "Build communication, confidence, and soft skills through guided exercises designed for early-career success.",
   },
 ];
 
 const Features = () => {
   return (
-    <section className="py-24 bg-background">
+    <section id="services" className="py-20 md:py-24 bg-background">
       <div className="container mx-auto px-4">
-        <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-in">
-          <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+        <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16 animate-fade-in">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 tracking-tight">
             Everything You Need to{" "}
             <span className="bg-gradient-primary bg-clip-text text-transparent">
-              Land Your Dream Job
+              Get Hired
             </span>
           </h2>
-          <p className="text-xl text-muted-foreground">
-            Our comprehensive platform combines cutting-edge AI with proven career strategies 
-            to give you the competitive edge in today's job market.
+          <p className="text-base md:text-xl text-muted-foreground">
+            Smart tools made for students — practical, fast, and built to deliver real results.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
           {features.map((feature, index) => (
             <Card
               key={index}
-              className="group hover:shadow-lg transition-all duration-300 border-border/50 hover:border-primary/50 animate-fade-in"
+              className="group relative hover:shadow-md transition-all duration-300 border-border/60 hover:border-primary/40 hover:-translate-y-1 animate-fade-in"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <CardContent className="p-6 space-y-4">
-                <div className="w-14 h-14 rounded-lg bg-gradient-primary flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-300">
-                  <feature.icon className="w-7 h-7 text-white" />
+                <div className="w-12 h-12 rounded-xl bg-gradient-primary flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform duration-300">
+                  <feature.icon className="w-6 h-6 text-primary-foreground" />
                 </div>
-                <h3 className="text-xl font-semibold">{feature.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">
+                <div className="flex items-center gap-2 flex-wrap">
+                  <h3 className="text-lg font-semibold">{feature.title}</h3>
+                  {feature.badge && (
+                    <Badge variant="secondary" className="text-xs">{feature.badge}</Badge>
+                  )}
+                </div>
+                <p className="text-sm text-muted-foreground leading-relaxed">
                   {feature.description}
                 </p>
               </CardContent>

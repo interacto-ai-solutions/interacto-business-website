@@ -1,62 +1,54 @@
-import { CheckCircle2 } from "lucide-react";
+import { Upload, Sparkles, Rocket } from "lucide-react";
 
 const steps = [
   {
+    icon: Upload,
     number: "01",
-    title: "Create Your Profile",
-    description: "Sign up in minutes and upload your current resume. Our AI instantly analyzes your experience and career goals.",
+    title: "Upload Your Resume",
+    description: "Add your existing resume in seconds. Our AI reads your skills, experience, and goals.",
   },
   {
+    icon: Sparkles,
     number: "02",
-    title: "Get AI-Powered Insights",
-    description: "Receive personalized recommendations to enhance your resume, optimize keywords, and highlight your strengths.",
+    title: "Get AI Insights & Questions",
+    description: "Receive instant resume feedback and a personalized interview question bank for your target role.",
   },
   {
+    icon: Rocket,
     number: "03",
-    title: "Practice & Improve",
-    description: "Engage in mock interviews with real-time AI feedback. Build confidence and refine your responses.",
-  },
-  {
-    number: "04",
-    title: "Connect & Apply",
-    description: "Access exclusive job opportunities, connect with professionals, and get referrals to top companies.",
+    title: "Improve & Get Job-Ready",
+    description: "Apply changes, practice answers, and walk into interviews with confidence.",
   },
 ];
 
 const HowItWorks = () => {
   return (
-    <section className="py-24 bg-secondary/30">
+    <section id="how-it-works" className="py-20 md:py-24 bg-secondary/40">
       <div className="container mx-auto px-4">
-        <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-in">
-          <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+        <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16 animate-fade-in">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 tracking-tight">
             How It Works
           </h2>
-          <p className="text-xl text-muted-foreground">
-            Four simple steps to accelerate your career journey and land interviews at top companies.
+          <p className="text-base md:text-xl text-muted-foreground">
+            Three simple steps to start your career journey.
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto space-y-8">
+        <div className="grid md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
           {steps.map((step, index) => (
             <div
               key={index}
-              className="group flex gap-6 p-6 rounded-xl bg-card hover:shadow-md transition-all duration-300 animate-slide-in"
+              className="relative group bg-card rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md transition-all duration-300 border border-border/60 animate-fade-in"
               style={{ animationDelay: `${index * 0.15}s` }}
             >
-              <div className="flex-shrink-0">
-                <div className="w-16 h-16 rounded-full bg-gradient-primary flex items-center justify-center text-white font-bold text-xl shadow-md group-hover:scale-110 transition-transform duration-300">
-                  {step.number}
-                </div>
+              <div className="absolute -top-4 left-6 text-5xl font-bold text-primary/10 select-none">
+                {step.number}
               </div>
-              <div className="flex-1 space-y-2">
-                <div className="flex items-start justify-between">
-                  <h3 className="text-2xl font-semibold">{step.title}</h3>
-                  <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                </div>
-                <p className="text-muted-foreground text-lg leading-relaxed">
-                  {step.description}
-                </p>
+              <div className="w-14 h-14 rounded-xl bg-gradient-primary flex items-center justify-center shadow-sm mb-4 group-hover:scale-110 transition-transform duration-300">
+                <step.icon className="w-7 h-7 text-primary-foreground" />
               </div>
+              <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
+              <p className="text-muted-foreground leading-relaxed">{step.description}</p>
             </div>
           ))}
         </div>
