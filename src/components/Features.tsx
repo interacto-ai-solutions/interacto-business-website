@@ -34,12 +34,10 @@ const Features = () => {
   return (
     <section id="services" className="py-20 md:py-24 bg-background">
       <div className="container mx-auto px-4">
-        <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16 animate-fade-in">
+        <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16 reveal">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 tracking-tight">
             Everything You Need to{" "}
-            <span className="bg-gradient-primary bg-clip-text text-transparent">
-              Get Hired
-            </span>
+            <span className="text-gradient">Get Hired</span>
           </h2>
           <p className="text-base md:text-xl text-muted-foreground">
             Smart tools made for students — practical, fast, and built to deliver real results.
@@ -50,8 +48,8 @@ const Features = () => {
           {features.map((feature, index) => (
             <Card
               key={index}
-              className="group relative hover:shadow-md transition-all duration-300 border-border/60 hover:border-primary/40 hover:-translate-y-1 animate-fade-in"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className="group relative hover-lift border-border/60 hover:border-primary/40 reveal"
+              style={{ transitionDelay: `${index * 80}ms` }}
             >
               <CardContent className="p-6 space-y-4">
                 <div className="w-12 h-12 rounded-xl bg-gradient-primary flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform duration-300">
