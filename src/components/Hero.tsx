@@ -33,7 +33,7 @@ const Hero = () => {
                 </a>
               </Button>
               <Button size="lg" variant="outline" className="text-base" asChild>
-                <a href="https://app.interacto.co.in/" target="_blank" rel="noopener noreferrer">
+                <a href="https://youtu.be/wocWCqZu5LM" target="_blank" rel="noopener noreferrer">
                   <PlayCircle className="w-4 h-4" />
                   Watch Demo
                 </a>
