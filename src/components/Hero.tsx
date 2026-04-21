@@ -17,9 +17,7 @@ const Hero = () => {
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight">
               Become Job-Ready with{" "}
-              <span className="bg-gradient-primary bg-clip-text text-transparent">
-                AI-Powered Career Tools
-              </span>
+              <span className="text-gradient">AI-Powered Career Tools</span>
             </h1>
 
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-xl mx-auto lg:mx-0">

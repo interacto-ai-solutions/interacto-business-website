@@ -2,107 +2,102 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Interacto AI design system — professional navy + indigo palette. All colors HSL. */
 
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 215 25% 15%;
+    --foreground: 222 47% 11%;
 
     --card: 0 0% 100%;
-    --card-foreground: 215 25% 15%;
+    --card-foreground: 222 47% 11%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 215 25% 15%;
+    --popover-foreground: 222 47% 11%;
 
-    --primary: 210 100% 50%;
+    /* Professional indigo / navy */
+    --primary: 224 76% 38%;
     --primary-foreground: 0 0% 100%;
-    
-    --primary-light: 195 100% 55%;
-    --primary-dark: 220 100% 45%;
+    --primary-light: 230 84% 60%;
+    --primary-dark: 224 71% 24%;
 
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 215 25% 15%;
+    --secondary: 220 30% 96%;
+    --secondary-foreground: 222 47% 11%;
 
-    --muted: 210 40% 96%;
-    --muted-foreground: 215 15% 45%;
+    --muted: 220 25% 96%;
+    --muted-foreground: 215 16% 42%;
 
-    --accent: 195 100% 55%;
+    --accent: 230 84% 60%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 210 100% 50%;
+    --border: 220 20% 90%;
+    --input: 220 20% 90%;
+    --ring: 224 76% 38%;
 
     --radius: 0.75rem;
-    
-    --gradient-primary: linear-gradient(135deg, hsl(220 100% 50%), hsl(195 100% 55%));
-    --gradient-hero: linear-gradient(180deg, hsl(220 100% 97%) 0%, hsl(0 0% 100%) 100%);
-    
-    --shadow-sm: 0 2px 8px hsl(220 15% 15% / 0.04);
-    --shadow-md: 0 4px 16px hsl(220 15% 15% / 0.08);
-    --shadow-lg: 0 8px 32px hsl(220 15% 15% / 0.12);
+
+    --gradient-primary: linear-gradient(135deg, hsl(224 71% 24%) 0%, hsl(224 76% 38%) 50%, hsl(230 84% 60%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(220 40% 98%) 0%, hsl(0 0% 100%) 100%);
+    --gradient-subtle: linear-gradient(135deg, hsl(220 30% 98%) 0%, hsl(220 25% 96%) 100%);
+
+    --shadow-sm: 0 1px 2px hsl(222 47% 11% / 0.04), 0 1px 3px hsl(222 47% 11% / 0.06);
+    --shadow-md: 0 4px 12px hsl(222 47% 11% / 0.06), 0 2px 4px hsl(222 47% 11% / 0.04);
+    --shadow-lg: 0 12px 32px hsl(222 47% 11% / 0.10), 0 4px 8px hsl(222 47% 11% / 0.04);
+    --shadow-glow: 0 0 40px hsl(230 84% 60% / 0.2);
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
-    --background: 220 25% 8%;
+    --background: 222 47% 6%;
     --foreground: 210 40% 98%;
 
-    --card: 220 20% 12%;
+    --card: 222 40% 10%;
     --card-foreground: 210 40% 98%;
 
-    --popover: 220 20% 12%;
+    --popover: 222 40% 10%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 210 100% 50%;
+    --primary: 230 84% 60%;
     --primary-foreground: 0 0% 100%;
-    
-    --primary-light: 195 100% 55%;
-    --primary-dark: 220 100% 45%;
+    --primary-light: 230 84% 70%;
+    --primary-dark: 224 76% 38%;
 
-    --secondary: 220 20% 16%;
+    --secondary: 222 30% 14%;
     --secondary-foreground: 210 40% 98%;
 
-    --muted: 220 20% 16%;
+    --muted: 222 30% 14%;
     --muted-foreground: 215 20% 65%;
 
-    --accent: 195 100% 55%;
+    --accent: 230 84% 60%;
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 63% 31%;
+    --destructive: 0 63% 45%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 220 20% 20%;
-    --input: 220 20% 20%;
-    --ring: 210 100% 50%;
-    
-    --gradient-primary: linear-gradient(135deg, hsl(220 100% 50%), hsl(195 100% 55%));
-    --gradient-hero: linear-gradient(180deg, hsl(220 30% 12%) 0%, hsl(220 25% 8%) 100%);
-    
-    --shadow-sm: 0 2px 8px hsl(0 0% 0% / 0.2);
-    --shadow-md: 0 4px 16px hsl(0 0% 0% / 0.3);
-    --shadow-lg: 0 8px 32px hsl(0 0% 0% / 0.4);
+    --border: 222 30% 18%;
+    --input: 222 30% 18%;
+    --ring: 230 84% 60%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(224 71% 24%) 0%, hsl(224 76% 38%) 50%, hsl(230 84% 60%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(222 40% 10%) 0%, hsl(222 47% 6%) 100%);
+    --gradient-subtle: linear-gradient(135deg, hsl(222 40% 10%) 0%, hsl(222 30% 14%) 100%);
+
+    --shadow-sm: 0 1px 2px hsl(0 0% 0% / 0.3);
+    --shadow-md: 0 4px 16px hsl(0 0% 0% / 0.4);
+    --shadow-lg: 0 12px 32px hsl(0 0% 0% / 0.5);
+    --shadow-glow: 0 0 40px hsl(230 84% 60% / 0.3);
+
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -119,7 +114,53 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+@layer utilities {
+  .hover-scale {
+    @apply transition-transform duration-200 hover:scale-105;
+  }
+
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
+  }
+
+  .story-link {
+    @apply relative inline-block after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-[-2px] after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-primary bg-clip-text text-transparent;
+  }
+
+  /* Reveal-on-scroll: hidden until .is-visible is added by IntersectionObserver */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    will-change: opacity, transform;
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+    html {
+      scroll-behavior: auto;
+    }
   }
 }

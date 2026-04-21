@@ -25,7 +25,7 @@ const HowItWorks = () => {
   return (
     <section id="how-it-works" className="py-20 md:py-24 bg-secondary/40">
       <div className="container mx-auto px-4">
-        <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16 animate-fade-in">
+        <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16 reveal">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 tracking-tight">
             How It Works
           </h2>
@@ -38,8 +38,8 @@ const HowItWorks = () => {
           {steps.map((step, index) => (
             <div
               key={index}
-              className="relative group bg-card rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md transition-all duration-300 border border-border/60 animate-fade-in"
-              style={{ animationDelay: `${index * 0.15}s` }}
+              className="relative group bg-card rounded-2xl p-6 md:p-8 shadow-sm hover-lift border border-border/60 reveal"
+              style={{ transitionDelay: `${index * 120}ms` }}
             >
               <div className="absolute -top-4 left-6 text-5xl font-bold text-primary/10 select-none">
                 {step.number}
