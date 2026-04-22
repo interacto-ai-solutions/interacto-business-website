@@ -5,8 +5,10 @@ import { cn } from "@/lib/utils";
 
 const navLinks = [
   { label: "Services", href: "#services" },
-  { label: "How It Works", href: "#how-it-works" },
-  { label: "Testimonials", href: "#testimonials" },
+  { label: "Institutions", href: "#institutions" },
+  { label: "Use Cases", href: "#use-cases" },
+  { label: "FAQ", href: "#faq" },
+  { label: "Contact", href: "#contact" },
 ];
 
 const Header = () => {
@@ -42,7 +44,7 @@ const Header = () => {
           </a>
 
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-7">
             {navLinks.map((link) => (
               <a
                 key={link.href}
@@ -66,7 +68,7 @@ const Header = () => {
           {/* Mobile menu trigger */}
           <button
             onClick={() => setOpen((v) => !v)}
-            className="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-md hover:bg-secondary transition-colors"
+            className="lg:hidden inline-flex items-center justify-center w-10 h-10 rounded-md hover:bg-secondary transition-colors"
             aria-label="Toggle menu"
             aria-expanded={open}
           >
@@ -76,7 +78,7 @@ const Header = () => {
 
         {/* Mobile nav */}
         {open && (
-          <div className="md:hidden pb-4 animate-slide-down">
+          <div className="lg:hidden pb-4 animate-slide-down">
             <nav className="flex flex-col gap-1 pt-2 border-t border-border">
               {navLinks.map((link) => (
                 <a
