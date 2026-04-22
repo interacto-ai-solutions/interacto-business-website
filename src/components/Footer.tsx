@@ -1,10 +1,10 @@
-import { Linkedin, Youtube, Sparkles, ExternalLink, MapPin } from "lucide-react";
+import { Linkedin, Youtube, Sparkles, ExternalLink, MapPin, Mail } from "lucide-react";
 
 const Footer = () => {
   return (
     <footer className="bg-secondary/40 border-t border-border">
       <div className="container mx-auto px-4 py-14">
-        <div className="grid md:grid-cols-3 gap-10 mb-10">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10 mb-10">
           <div className="space-y-4">
             <div className="flex items-center gap-2">
               <div className="w-9 h-9 rounded-lg bg-gradient-primary flex items-center justify-center shadow-md">
@@ -46,13 +46,40 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="#how-it-works" className="text-muted-foreground hover:text-primary transition-colors story-link">
-                  How It Works
+                <a href="#institutions" className="text-muted-foreground hover:text-primary transition-colors story-link">
+                  Institutions
                 </a>
               </li>
               <li>
-                <a href="#testimonials" className="text-muted-foreground hover:text-primary transition-colors story-link">
-                  Testimonials
+                <a href="#use-cases" className="text-muted-foreground hover:text-primary transition-colors story-link">
+                  Use Cases
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="font-semibold mb-4 text-sm uppercase tracking-wider text-foreground/80">
+              Contact
+            </h3>
+            <ul className="space-y-2.5 text-sm">
+              <li>
+                <a
+                  href="mailto:contact@interacto.co.in"
+                  className="inline-flex items-center gap-1.5 text-muted-foreground hover:text-primary transition-colors story-link"
+                >
+                  contact@interacto.co.in
+                  <Mail className="w-3.5 h-3.5" />
+                </a>
+              </li>
+              <li>
+                <a href="#contact" className="text-muted-foreground hover:text-primary transition-colors story-link">
+                  Partner With Us
+                </a>
+              </li>
+              <li>
+                <a href="#faq" className="text-muted-foreground hover:text-primary transition-colors story-link">
+                  FAQ
                 </a>
               </li>
             </ul>
