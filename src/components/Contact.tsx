@@ -1,5 +1,5 @@
 import { FormEvent, useState } from "react";
-import { Mail, MessageSquare, PhoneCall, Send } from "lucide-react";
+import { MessageSquare, PhoneCall, Send } from "lucide-react";
 import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -26,8 +26,6 @@ const initialForm: EnquiryForm = {
   message: "",
 };
 
-const contactEmail = "contact@interacto.co.in";
-
 const Contact = () => {
   const [form, setForm] = useState<EnquiryForm>(initialForm);
   const [errors, setErrors] = useState<EnquiryErrors>({});
@@ -53,18 +51,7 @@ const Contact = () => {
       return;
     }
 
-    const enquiry = result.data;
-    const body = [
-      `Name: ${enquiry.name}`,
-      `Email: ${enquiry.email}`,
-      `Phone: ${enquiry.phone}`,
-      `Institution / Organization: ${enquiry.organization}`,
-      `Role: ${enquiry.role}`,
-      "",
-      enquiry.message,
-    ].join("\n");
-
-    window.location.href = `mailto:${contactEmail}?subject=${encodeURIComponent("Interacto AI institutional enquiry")}&body=${encodeURIComponent(body)}`;
+    setForm(initialForm);
     setSubmitted(true);
   };
 
@@ -86,10 +73,6 @@ const Contact = () => {
               </p>
             </div>
             <div className="space-y-3 text-sm text-muted-foreground">
-              <a href={`mailto:${contactEmail}`} className="flex items-center gap-3 hover:text-primary transition-colors">
-                <Mail className="h-4 w-4 text-primary" />
-                {contactEmail}
-              </a>
               <a href="https://app.interacto.co.in/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-primary transition-colors">
                 <PhoneCall className="h-4 w-4 text-primary" />
                 Request a callback through the platform
@@ -155,7 +138,7 @@ const Contact = () => {
 
                 {submitted && (
                   <p className="rounded-md border border-primary/20 bg-primary/10 px-3 py-2 text-sm text-primary">
-                    Your email client is opening with the enquiry details.
+                    Thanks for sharing your details. The enquiry form is ready for backend/email integration.
                   </p>
                 )}
 
