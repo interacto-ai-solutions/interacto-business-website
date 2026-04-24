@@ -9,7 +9,7 @@ const CTA = () => {
           <div className="absolute -top-20 -right-20 w-72 h-72 bg-white/10 rounded-full blur-3xl" />
           <div className="absolute -bottom-20 -left-20 w-72 h-72 bg-white/10 rounded-full blur-3xl" />
 
-          <div className="relative z-10 space-y-6 reveal">
+          <div className="relative z-10 space-y-6">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary-foreground tracking-tight">
               Try It Yourself — It's Free
             </h2>

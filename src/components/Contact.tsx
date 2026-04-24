@@ -30,14 +30,17 @@ const Contact = () => {
   const [form, setForm] = useState<EnquiryForm>(initialForm);
   const [errors, setErrors] = useState<EnquiryErrors>({});
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
   const updateField = (field: keyof EnquiryForm, value: string) => {
     setForm((current) => ({ ...current, [field]: value }));
     setErrors((current) => ({ ...current, [field]: undefined }));
     setSubmitted(false);
+    setSubmitError("");
   };
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const result = enquirySchema.safeParse(form);
 
@@ -51,15 +54,39 @@ const Contact = () => {
       return;
     }
 
-    setForm(initialForm);
-    setSubmitted(true);
+    setIsSubmitting(true);
+    setSubmitError("");
+
+    try {
+      const response = await fetch("/.netlify/functions/send-enquiry", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(result.data),
+      });
+
+      const payload = (await response.json().catch(() => ({}))) as { message?: string };
+
+      if (!response.ok) {
+        throw new Error(payload.message || "Something went wrong while sending your enquiry.");
+      }
+
+      setForm(initialForm);
+      setSubmitted(true);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : "Unable to send your enquiry right now.";
+      setSubmitError(message);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
     <section id="contact" className="py-20 md:py-24 bg-gradient-subtle">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-[0.85fr_1.15fr] gap-10 lg:gap-14 items-start">
-          <div className="reveal space-y-6">
+          <div className="space-y-6">
             <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-sm font-medium text-primary">
               <MessageSquare className="h-4 w-4" />
               Contact / Partner With Us
@@ -80,7 +107,7 @@ const Contact = () => {
             </div>
           </div>
 
-          <Card className="reveal border-border/60 shadow-md">
+          <Card className="border-border/60 shadow-md">
             <CardContent className="p-6 md:p-8">
               <form onSubmit={handleSubmit} className="space-y-5" noValidate>
                 <div className="grid sm:grid-cols-2 gap-4">
@@ -136,14 +163,20 @@ const Contact = () => {
                   {errors.message && <span className="text-xs text-destructive">{errors.message}</span>}
                 </label>
 
-                {submitted && (
-                  <p className="rounded-md border border-primary/20 bg-primary/10 px-3 py-2 text-sm text-primary">
-                    Thanks for sharing your details. The enquiry form is ready for backend/email integration.
+                {submitError && (
+                  <p className="rounded-md border border-destructive/20 bg-destructive/10 px-3 py-2 text-sm text-destructive">
+                    {submitError}
                   </p>
                 )}
 
-                <Button type="submit" size="lg" className="w-full sm:w-auto">
-                  Send Enquiry
+                {submitted && (
+                  <p className="rounded-md border border-primary/20 bg-primary/10 px-3 py-2 text-sm text-primary">
+                    Thanks for sharing your details. We’ve sent your enquiry to our team.
+                  </p>
+                )}
+
+                <Button type="submit" size="lg" className="w-full sm:w-auto" disabled={isSubmitting}>
+                  {isSubmitting ? "Sending..." : "Send Enquiry"}
                   <Send className="h-4 w-4" />
                 </Button>
               </form>

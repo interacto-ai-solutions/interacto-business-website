@@ -11,6 +11,8 @@ export const useScrollReveal = () => {
     if (initialized.current) return;
     initialized.current = true;
 
+    document.documentElement.classList.add("js");
+
     if (typeof window === "undefined" || !("IntersectionObserver" in window)) {
       document.querySelectorAll<HTMLElement>(".reveal").forEach((el) =>
         el.classList.add("is-visible")
@@ -39,9 +41,16 @@ export const useScrollReveal = () => {
     observe();
     // Re-scan after a tick in case content mounted later
     const t = window.setTimeout(observe, 200);
+    // Safety net: never leave reveal content hidden if the observer fails.
+    const fallback = window.setTimeout(() => {
+      document.querySelectorAll<HTMLElement>(".reveal:not(.is-visible)").forEach((el) =>
+        el.classList.add("is-visible")
+      );
+    }, 1600);
 
     return () => {
       window.clearTimeout(t);
+      window.clearTimeout(fallback);
       observer.disconnect();
     };
   }, []);

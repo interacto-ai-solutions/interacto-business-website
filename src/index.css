@@ -141,14 +141,14 @@
     @apply bg-gradient-primary bg-clip-text text-transparent;
   }
 
-  /* Reveal-on-scroll: hidden until .is-visible is added by IntersectionObserver */
-  .reveal {
+  /* Reveal-on-scroll: keep content visible by default, then animate only when JS is active. */
+  .js .reveal {
     opacity: 0;
     transform: translateY(24px);
     transition: opacity 0.7s ease-out, transform 0.7s ease-out;
     will-change: opacity, transform;
   }
-  .reveal.is-visible {
+  .js .reveal.is-visible {
     opacity: 1;
     transform: translateY(0);
   }
